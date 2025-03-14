@@ -32,70 +32,81 @@
 
 Follow the steps below to install MicroAI Security on your system. The installation process varies depending on your operating system and architecture. Before proceeding, ensure you have your Licensing key, which is essential for activating the agent.
 
-**Add command to detect OS** to ensure their os/arch is supported
+Determine your Operating system and architecture [here](./docs/Detect-OS-Arch.md).
 
 ### Step 1: Activate your License
 
-Activate your license and retrieve your license key on [MicroAI Launchpad](https://launchpad.micro.ai/activate/securitytrial)
+Activate your license and retrieve your license key on [MicroAI Launchpad](https://cloud-staging.onetech.ai/activate/campaign_March). See [activation walkthrough](./docs/Registration-Instructions.md) for a guided steps.
 
 ### Step 2: Download the Package
 
-Download the latest supported releases from the [packages](packages/README.md) directory.
+Download the latest supported releases from the [packages](./docs/Packages.md) page and transfer it onto the system intended for installation. alternatively, use the commands directly from [step 3](#step-3-extract-and-set-up-the-agent).
 
 ### Step 3: Extract and Set Up the Agent
+
+Copy the following section for your operating system and architecture and update the command to match it with your details.
+
+- Replace `<latest-version>` with the latest release version.
+- Replace `<license-key>` with a valid license key retrieved from [step 1](#step-1-activate-your-license)
 
 #### **Linux (AMD64)**
 
 ```bash
-tar -xzf MicroAI-Security-linux-amd64-x.x.xx.tar.gz
-cd MicroAI-Security-linux-amd64-x.x.xx/bin
+wget https://maicdn-staging.micro.ai/security/linux/MicroAI-Security-stg-linux-amd64-<latest-version>-rc1.tar.gz
+tar -xzf MicroAI-Security-stg-linux-amd64-<latest-version>-rc1.tar.gz
+cd MicroAI-Security-stg-linux-amd64-<latest-version>/bin
 chmod +x main
+sudo ./main -MAI_API_KEY=<license-key>
 ```
 
 #### **Linux (ARM)**
 
 ```bash
-tar -xzf MicroAI-Security-linux-arm-x.x.xx.tar.gz
-cd MicroAI-Security-linux-arm-x.x.xx/bin
+wget https://maicdn-staging.micro.ai/security/linux/MicroAI-Security-stg-linux-arm-<latest-version>.tar.gz
+tar -xzf MicroAI-Security-stg-linux-arm-<latest-version>-rc1.tar.gz
+cd MicroAI-Security-stg-linux-arm-<latest-version>/bin
 chmod +x main
+sudo ./main -MAI_API_KEY=<license-key>
 ```
 
 #### **Linux (ARM64)**
 
 ```bash
-tar -xzf MicroAI-Security-linux-arm64-x.x.xx.tar.gz
-cd MicroAI-Security-linux-arm64-x.x.xx/bin
+wget https://maicdn-staging.micro.ai/security/linux/MicroAI-Security-stg-linux-arm64-<latest-version>.tar.gz
+tar -xzf MicroAI-Security-stg-linux-arm64-<latest-version>-rc1.tar.gz
+cd MicroAI-Security-stg-linux-arm64-<latest-version>/bin
 chmod +x main
+sudo ./main -MAI_API_KEY=<license-key>
 ```
 ---
 #### **Run Without Console**
 
 ```bash
-sudo ./main -license_key=<profile-api>
+sudo ./main -MAI_API_KEY=<license-key>
 ```
 
 #### **Run with Console on Default Port (8989)**
 
 ```bash
-sudo ./main -license_key=<profile-api> -console
+sudo ./main -MAI_API_KEY=<license-key> -console
 ```
 
 #### **Run with Console on a Custom Port**
 
 ```bash
-sudo ./main -license_key=<profile-api> -console -console.port=<port>
+sudo ./main -MAI_API_KEY=<license-key> -console -console.port=<port>
 ```
 
 #### **Run with Java Path (for Console)**
 
 ```bash
-sudo ./main -license_key=<profile-api> -console -javapath=/usr/lib/jdk/jdk-17.0.9/bin/java
+sudo ./main -MAI_API_KEY=<license-key> -console -javapath=/usr/lib/jdk/jdk-17.0.9/bin/java
 ```
 ---
 #### **Windows (AMD64)**
 
 ```powershell
-Invoke-WebRequest https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-x.x.xx.exe -OutFile MicroAI-Security-windows-amd64-x.x.xx.exe
+Invoke-WebRequest https://maicdn-staging.micro.ai/security/windows/MicroAI-Security-stg-windows-amd64-<latest-version>-rc1.exe -OutFile MicroAI-Security-windows-amd64-<latest-version>.exe
 ```
 
 #### **Docker**
@@ -104,32 +115,26 @@ Docker provides an efficient way to run MicroAI in a containerized environment. 
 
 #### Key Considerations
 - Ensure Docker is installed and running on your system before executing the commands.
-- Replace `<your_license_key>` with the actual MicroAI License key for authentication.
+- Replace `<license-key>` with the actual MicroAI License key for authentication.
 - Using `--privileged` and `--net=host` grants the container full system access, which is required for security monitoring but should be used cautiously.
-- The image tag `2.x.x` corresponds to the MicroAI agent version; update it as needed for newer versions.
+- The image tag `<latest-version>` corresponds to the MicroAI agent version; update it as needed for newer versions.
 
 #### For x86_64 (AMD64) Systems
 
 ```bash
-docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host \
-  --name microai_security_2_x_x -e MAI_API_KEY=<your_license_key> \
-  -ti plasmacomputing/microai_security:linux-amd64-2.x.x
+docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/micro_ai_security:linux-amd64-<latest-version>-rc1
 ```
 
 #### For ARM (32-bit) Systems
 
 ```bash
-docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host \
-  --name microai_security_2_x_x -e MAI_API_KEY=<your_license_key> \
-  -ti plasmacomputing/microai_security:linux-arm-2.x.x
+docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/micro_ai_security:linux-arm-<latest-version>-rc1
 ```
 
 #### For ARM64 (AArch64) Systems
 
 ```bash
-docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host \
-  --name microai_security_2_x_x -e MAI_API_KEY=<your_license_key> \
-  -ti plasmacomputing/microai_security:linux-arm64-2.x.x
+docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/micro_ai_security:linux-arm64-<latest-version>-rc1
 ```
 
 
@@ -204,7 +209,7 @@ If you encounter issues, try these solutions:
 - Solution:
   ```bash
   chmod +x main
-  sudo ./main -MAI_API_KEY=<your_license_key>
+  sudo ./main -MAI_API_KEY=<license-key>
   ```
 
 ### Issue: UI Console Not Launching
@@ -212,7 +217,7 @@ If you encounter issues, try these solutions:
 - Solution:
   ```bash
   java -version  # Ensure Java 17 is installed
-  sudo ./main -MAI_API_KEY=<profile-api> -console
+  sudo ./main -MAI_API_KEY=<license-key> -console
   ```
 
 ### Issue: API Key Authentication Fails

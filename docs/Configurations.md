@@ -1,6 +1,19 @@
 # Configurations
-The following options allows you to configure your agent according to your needs. Updating this requires the agent to be restarted, and in some cases, retraining. **NOTE: provide details on where to find the config file for different OS**
+The following options allows you to configure your agent according to your needs. Updating this requires the agent to be restarted, and in some cases, retraining.
 
+The configuration file can be located under config/config.json. Determine where the package was installed during the [installation step](../README.md#step-3-extract-and-set-up-the-agent).
+
+```sh
+MicroAI Secucrity and Monitoring
+├── bin
+│   └── main
+├── config
+│   └── config.json # The configurations File
+├── data
+│   ├── logs # All log files
+│   └── models
+└── lib
+```
 ## Table of Contents
 
 - [Default configurations](#default-configurations)
@@ -100,13 +113,13 @@ To help users recognize MicroAI security alerts, below are sample screenshots of
 
 The following screenshot shows a **Critical Security Alert** email from MicroAI, indicating a new SSH connection has been established. It includes device details such as name, IP address, and MAC address, along with issue details like type, level, and severity. This alert highlights a potentially unauthorized connection attempt.
 
-![Critical Security Alert](../docs/images/Security-Alert-Critical.png)
+<img src="../docs/images/Security-Alert-Critical.png" alt="Critical Security Alert" width="500">
 
 #### High Severity Security Alert
 
 The following screenshot displays a **High Severity Security Alert** email from MicroAI, reporting an abnormal process detection (`/usr/bin/python3.8 | ufw`). It includes device details (name, IP address, MAC address) and highlights a potential security risk related to unauthorized or suspicious process execution.
 
-![High Security Alert](../docs/images/Security-Alert-High.png)
+<img src="../docs/images/Security-Alert-High.png" alt="High Security Alert" width="500">
 
 #### Critical Monitoring Alert
 
@@ -119,7 +132,7 @@ The following screenshot indicates a **Critical Monitoring Alert** triggered by 
 - **Uptime:** 99.87%
 - **Last Up:** 5m 0s ago
 
-![Critical Monitoring Alert](../docs/images/Monitoring-Alert-Critical.png)
+<img src="../docs/images/Monitoring-Alert-Critical.png" alt="Critical Monitoring Alert" width="500">
 
 #### Informational Monitoring Alert
 
@@ -132,7 +145,7 @@ The following screenshot displays an **Informational Monitoring Alert** from Mic
 - **Uptime:** 99.85%
 - **Last Up:** 10m 0s ago
 
-![Info Monitoring Alert](../docs/images/Monitoring-Alert-Info.png)
+<img src="../docs/images/Monitoring-Alert-Info.png" alt="Info Monitoring Alert" width="500">
 
 ## Exporter Configurations
 

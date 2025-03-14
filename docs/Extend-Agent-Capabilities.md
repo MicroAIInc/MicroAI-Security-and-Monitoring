@@ -174,12 +174,13 @@ if __name__ == "__main__":
 The output from this script should show the following output on succesfull port blocking.
 
 ```cmd
-[INFO] Listening for MAIAlert messages...
-[DEBUG] Received Alert: A new listening port has been detected! 6666 ProcessName: nc
-[DEBUG] Extracted port: 6666
-[INFO] Attempting to block port 6666...
-[INFO] killing process 1750157 using port 6666...
-[INFO] Port 6666 block permanently.
+[DEBUG] Received Alert: A new listening port has been detected! 8844 ProcessName: nc
+[DEBUG] No IP found after 'to' or 'from' in message!
+A new listening port has been detected! 8844 ProcessName: nc
+[DEBUG] Extracted port: 8844
+[INFO] Attempting to block port 8844...
+[INFO] Killing process 2918553 using port 8844...
+[INFO] Port 8844 blocked.
 ```
 
 ### Blocking or Isolating an IP
@@ -261,15 +262,11 @@ if __name__ == "__main__":
 The output from this script should show the following output on succesfull IP blocking.
 
 ```cmd
-[INFO] Listening for MAIAlert messages...
-[DEBUG] Received Alert: Abnormal destination: the device transmitted 8 packets to 1.1.1.99:ICMPv4 from 190.168.8.76:ICMPv4
-[DEBUG] Extracted IP: 1.1.1.99
-[INFO] Attempting to block IP 1.1.1.99
-[INFO] IP 1.1.1.9 block permanently
-[DEBUG] Received Alert: Abnormal port/protocol: the device received 4 packets on 190.168.8.76:ICMPv4 from 1.1.1.99:ICMPv4
-[DEBUG] Extracted IP: 1.1.1.99
-[INFO] Attempting to block IP 1.1.1.99
-[INFO] IP 1.1.1.9 block permanently
+[INFO] Processing ASYNC message...
+[DEBUG] Received Alert: Abnormal port/protocol: the device received  2 packets on 192.168.2.187:ICMPv4 from 1.1.1.77:ICMPv4
+[DEBUG] Extracted IP: 1.1.1.77
+[INFO] Attempting to block IP 1.1.1.77...
+[INFO] IP 1.1.1.77 blocked permanently.
 ```
 
 ### Terminating a malicious Process or Payload
@@ -348,11 +345,10 @@ if __name__ == "__main__":
 The output from this script should show the following output on succesfull malicious process or payload blocking.
 
 ```cmd
-[INFO] Listening for MAIAlert messages...
-[DEBUG] Received Alert: Abnormal process detected! /usr/bin/bash|ransom00.sh
-[INFO] Processing abnormal process alert: Abnormal process detected! /usr/bin/bash|ransom00.sh
-[DEBUG] Extracted process name: ransom00.sh...
-[INFO] Attempting to terminate process: ransom00.sh...
-[INFO] Terminating process 1811071 (ransom00.sh)...
-[INFO] Terminating process 1811079 (ransom00.sh)...
+[INFO] Processing ASYNC message...
+Abnormal process detected! /usr/bin/ransom.sh|ransom.sh
+[DEBUG] Extracted process name: ransom.sh
+[INFO] Attempting to terminate process: ransom.sh...
+[INFO] Terminating process 2883186 (ransom.sh)...
+[INFO] Terminating process 2883198 (ransom.sh)...
 ```
