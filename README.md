@@ -3,7 +3,7 @@
 </p>
 <br />
 <p align="center">
-  <img src="https://docs.micro.ai/_static/microai-logo-light.svg" alt="MicroAI Logo" width="200">
+  <img src="./docs/images/microai-logo.png" alt="MicroAI Logo" width="250">
 </p>
 
 <h3 align="center">MicroAI Security and Monitoring</h3>
@@ -23,36 +23,36 @@
 - [Usage](#usage)
 - [Validation](#validation)
 - [Configurations](#configurations)
+- [Features](#features)
 - [Troubleshooting](#troubleshooting)
 - [License](#license)
-- [Contact](#contact)
-
-## Stay current with the latest updates!
-The MicroAI team regularly releases new versions. Please see the [release notes page](./docs/RELEASENOTES.md) for updates. We recommend keeping up to date with latest releases to stay current on security patches, bug fixes, and new features. Take a peek at our [feature page](docs/Feature-List.md) for current features available with our agent.
+- [Contact](#contact) 
 
 ## Installation
 
 Follow the steps below to install MicroAI Security on your system. The installation process varies depending on your operating system and architecture. Before proceeding, ensure you have your Licensing key, which is essential for activating the agent.
 
+**Add command to detect OS** to ensure their os/arch is supported
+
 ### Step 1: Activate your License
 
-Activate your license and retrieve your license key on [MicroAI](https://micro.ai)
+Activate your license and retrieve your license key on [MicroAI Launchpad](https://launchpad.micro.ai/activate/securitytrial)
 
 ### Step 2: Download the Package
 
-Download the latest release the [packages](packages/README.md) directory.
+Download the latest supported releases from the [packages](packages/README.md) directory.
 
 ### Step 3: Extract and Set Up the Agent
 
-#### **For Linux (amd64)**
+#### **Linux (AMD64)**
 
 ```bash
-tar -xzf microai_security_vx_x_xx.tar.gz
-cd microai_security_vx_x_xx/bin
+tar -xzf MicroAI-Security-linux-amd64-x.x.xx.tar.gz
+cd MicroAI-Security-linux-amd64-x.x.xx/bin
 chmod +x main
 ```
 
-#### **For Linux (ARM)**
+#### **Linux (ARM)**
 
 ```bash
 tar -xzf MicroAI-Security-linux-arm-x.x.xx.tar.gz
@@ -60,66 +60,46 @@ cd MicroAI-Security-linux-arm-x.x.xx/bin
 chmod +x main
 ```
 
-#### **For Windows (amd64)**
-
-```powershell
-Invoke-WebRequest https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-x.x.xx.exe -OutFile MicroAI-Security-windows-amd64-x.x.xx.exe
-```
-
-#### **For Docker**
-
-Docker provides an efficient way to run MicroAI in a containerized environment. If you prefer deploying the agent as a Docker container, see the [Docker section](#docker).
-
-
-### Step 4: Install Java 17 (If UI Console is Needed)
-
-If you're enabling the Local UI Console, install Java 17:
+#### **Linux (ARM64)**
 
 ```bash
-wget https://download.oracle.com/java/17/archive/jdk-17.0.9_linux-x64_bin.tar.gz
-mkdir -p /usr/lib/jdk
-tar xvzf jdk-17.0.9_linux-x64_bin.tar.gz -C /usr/lib/jdk
+tar -xzf MicroAI-Security-linux-arm64-x.x.xx.tar.gz
+cd MicroAI-Security-linux-arm64-x.x.xx/bin
+chmod +x main
 ```
-
-## Usage
-
-Activate and retrieve your **license key** from [MicroAI Launchpad](https://launchpad.micro.ai/) before launching the agent.
-
-See [Launching MicroAI Security and Monitoring](docs/Launch-Instructions.md) for a detailed walkthrough.
-
-#### **Run Without UI**
+---
+#### **Run Without Console**
 
 ```bash
 sudo ./main -license_key=<profile-api>
 ```
 
-#### **Run with UI on Default Port (8989)**
+#### **Run with Console on Default Port (8989)**
 
 ```bash
 sudo ./main -license_key=<profile-api> -console
 ```
 
-#### **Run with UI on a Custom Port**
+#### **Run with Console on a Custom Port**
 
 ```bash
 sudo ./main -license_key=<profile-api> -console -console.port=<port>
 ```
 
-#### **Run with Java Path (for UI Console)**
+#### **Run with Java Path (for Console)**
 
 ```bash
 sudo ./main -license_key=<profile-api> -console -javapath=/usr/lib/jdk/jdk-17.0.9/bin/java
 ```
+---
+#### **Windows (AMD64)**
 
-The following requirements apply **only if you enable the Local UI Console** (optional):
+```powershell
+Invoke-WebRequest https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-x.x.xx.exe -OutFile MicroAI-Security-windows-amd64-x.x.xx.exe
+```
 
-#### Java 17 Installation (for UI Console only)
-
-- [Java 17 for Linux x64](https://download.oracle.com/java/17/archive/jdk-17.0.9_linux-x64_bin.tar.gz)
-- [Java 17 for Linux Arm x64](https://download.oracle.com/java/17/archive/jdk-17.0.8_linux-aarch64_bin.tar.gz)
-
-## Docker
-
+#### **Docker**
+---
 Docker provides an efficient way to run MicroAI in a containerized environment. If you prefer deploying the agent as a Docker container, use the following commands, selecting the appropriate version based on your system architecture.
 
 #### Key Considerations
@@ -151,6 +131,23 @@ docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host
   --name microai_security_2_x_x -e MAI_API_KEY=<your_license_key> \
   -ti plasmacomputing/microai_security:linux-arm64-2.x.x
 ```
+
+
+### Step 4: Install Java 17 (If UI Console is Needed)
+
+If you're enabling the Local UI Console, install Java 17 for your linux environments:
+
+- [Java 17 for Linux x64](https://download.oracle.com/java/17/archive/jdk-17.0.9_linux-x64_bin.tar.gz)
+- [Java 17 for Linux Arm x64](https://download.oracle.com/java/17/archive/jdk-17.0.8_linux-aarch64_bin.tar.gz)
+
+```bash
+wget https://download.oracle.com/java/17/archive/jdk-17.0.9_linux-x64_bin.tar.gz
+mkdir -p /usr/lib/jdk
+tar xvzf jdk-17.0.9_linux-x64_bin.tar.gz -C /usr/lib/jdk
+```
+Windows installer includes this step in the instllation process.
+
+See [Launching MicroAI Security and Monitoring](docs/Launch-Instructions.md) for a detailed walkthrough.
 
 ## Validation
 
@@ -193,6 +190,10 @@ To customize your agent settings, refer to the [Configurations Guide](docs/Confi
 See [configure url and port monitoring](Configure-Internal-UI.md) page to get a walkthrough on how to use the local UI and monitor these options. **Requires Local UI to be running**
 
 Review our [extend agents capabilities](docs/Extend-Agent-Capabilities.md) page to apply custom remediation options and take custom actions on the agents alerts and notifications. 
+
+## Features
+
+Take a peek at our [feature page](docs/Feature-List.md) for current features available with our agent.
 
 ## Troubleshooting
 

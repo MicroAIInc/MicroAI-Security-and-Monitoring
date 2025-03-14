@@ -4,6 +4,29 @@ MicroAI allows users to extend its security and monitoring capabilities by proce
 
 ## Custom Remediation Examples
 
+### Configure External Exporter
+
+In order to extend the capabalities of the agent, the alerts and synschronous data needs to be configured to an output based on the selected protocol. The example below shows how this can be configured to use the http protocol.
+
+```json
+{
+  // ... other fields ...
+    "ExternalExporter": {
+      "ExternalExporterType": "HTTP", // Update the exporter Type
+      "Https_Post_Endpoint": "http://localhost:8000", // Add the desired endpoint
+      "Output_Redis_Endpoint": "",
+      "Output_MQTT": {
+        "Endpoint": "127.0.0.1",
+        "Port": 1884,
+        "Username": "",
+        "Password": "",
+        "topic_prefix": "data/"
+      }
+    }
+  // ... other fields ...
+}
+```
+
 ### Filtering Alerts to Relevancy
 By analyzing incoming alerts, users can filter out non-critical events and focus on relevant security incidents. This can be done by:
 - Identifying alert types (e.g., `MAIAlert`) from MicroAI JSON output.
@@ -13,23 +36,20 @@ By analyzing incoming alerts, users can filter out non-critical events and focus
 **Example Python Script to Filter Alerts:**
 
 ```python
+from fastapi import FastAPI, Request
 import json
-import redis
 
-# Redis connection (update host/port if needed)
-redis_host = "localhost"  # Change to your Redis server's IP if needed
-redis_port = 5005
-redis_channel = "Security_Async_JSON"
+# List of severities to filter
+SEVERITIES_TO_FILTER = ["High", "Critical"]  # You can easily change these values
 
-# Connect to Redis
-r = redis.Redis(host=redis_host, port=redis_port, decode_responses=True)
+app = FastAPI()
 
 def process_message(message):
-    """Process and filter MAIAlert messages with High/Critical severity."""
+    """Process and filter MAIAlert messages with specified severity levels."""
     try:
         data = json.loads(message)
         for alert in data.get("feed", []):
-            if alert.get("message_type") == "MAIAlert" and alert.get("severity") in ["High", "Critical"]:
+            if alert.get("message_type") == "MAIAlert" and alert.get("severity") in SEVERITIES_TO_FILTER:
                 print(f"\n#High/Critical Alert Detected!")
                 print(f"Time: {alert['edge_datetime']}")
                 print(f"Device: {alert['device_id']}")
@@ -39,19 +59,40 @@ def process_message(message):
     except json.JSONDecodeError:
         print("? Error decoding JSON")
 
-def redis_listener():
-    """Subscribe to Redis channel and process messages."""
-    pubsub = r.pubsub()
-    pubsub.subscribe(redis_channel)
-    print(f">Subscribed to Redis channel: {redis_channel}")
+@app.post("/")
+async def receive_alerts(request: Request):
+    """API endpoint to receive alerts and process them."""
+    try:
+        data = await request.json()  # Parse the JSON data
 
-    for message in pubsub.listen():
-        if message["type"] == "message":
-            #New Message Received!
-            process_message(message["data"])
+        if data.get("message_type") == "ASYNC":
+            print("[INFO] Processing ASYNC message...")
+
+            for alert in data.get("feed", []):
+                msg_type = alert.get("message_type", "")
+                if "MAIAlert" in msg_type:
+                    process_message(json.dumps(data))  # Process the received message
+        return {"status": "success", "message": "Alert processed"}
+    
+    except json.JSONDecodeError:
+        print("[ERROR] Failed to decode JSON message!")
+        return {"status": "error", "message": "Invalid JSON"}
 
 if __name__ == "__main__":
-    redis_listener()
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+```
+The output from this script should show the following output on succesfull filtering on alerts.
+
+```cmd
+[INFO] Processing ASYNC message...
+ 
+#High/Critical Alert Detected!
+Time: 2025-03-13T12:19:20.386Z
+Device: 00:15:5d:02:da:17
+Alert: AI-test-U20-2.165.local (192.168.2.187) A new listening port has been detected!
+Severity: Critical
+Details: A new listening port has been detected! 6011 ProcessName: sshd: c2m@p
 ```
 
 ### Blocking a Port
@@ -60,18 +101,16 @@ If an alert indicates that a suspicious or unauthorized port is open, the agent 
 **Example Python Script to Block a Port and Terminate the Associated Process:**
 
 ```python
-import redis
+from fastapi import FastAPI, Request
 import json
 import subprocess
 import os
 import re
 
-# Connect to Redis
-redis_channel = "Security_Async_JSON"
-r = redis.Redis(host='localhost', port=5005, decode_responses=True)
+app = FastAPI()
 
 def block_port(port):
-    """ Block the port permanently using iptables and kill any process using it """
+    """ Block the port using iptables and kill any process using it """
     
     print(f"[INFO] Attempting to block port {port}...")
 
@@ -88,17 +127,11 @@ def block_port(port):
     # Block the port using iptables
     os.system(f"sudo iptables -A INPUT -p tcp --dport {port} -j DROP")
     os.system(f"sudo iptables -A OUTPUT -p tcp --sport {port} -j DROP")
-    print(f"[INFO] Port {port} blocked permanently.")
+    print(f"[INFO] Port {port} blocked.")
 
 def extract_port(text_value):
     """ Extracts port number from 'text_value' field """
-    match = re.search(r":(\d{2,5})\b", text_value)
-    if match:
-        port = int(match.group(1))
-        print(f"[DEBUG] Extracted port: {port}")
-        return port
-    
-    match = re.search(r"\b(\d{2,5})\s+(?:ProcessName|Protocol)", text_value)
+    match = re.search(r"\b(\d{2,5})\b", text_value)
     if match:
         port = int(match.group(1))
         print(f"[DEBUG] Extracted port: {port}")
@@ -107,37 +140,36 @@ def extract_port(text_value):
     print("[DEBUG] No port found in message!")
     return None
 
-def listen_for_alerts():
-    """ Listen to Redis channel for new alerts """
-    pubsub = r.pubsub()
-    pubsub.subscribe(redis_channel)
+@app.post("/")
+async def receive_alerts(request: Request):
+    """ API endpoint to receive alerts and process them """
+    try:
+        data = await request.json()  
 
-    print("[INFO] Listening for MAIAlert messages...")
+        if data.get("message_type") == "ASYNC":
+            print("[INFO] Processing ASYNC message...")
 
-    for message in pubsub.listen():
-        if message["type"] == "message":
-            try:
-                data = json.loads(message["data"])
-                if "feed" in data:
-                    for alert in data["feed"]:
-                        if alert.get("message_type") == "MAIAlert":
-                            text_value = alert.get("text_value", "")
-                            print(f"[DEBUG] Received Alert: {text_value}")
-                            
-                            if "A new listening port" not in text_value:
-                                print("[INFO] Alert does not contain 'A new listening port'. Skipping...")
-                                continue
-                            
-                            port = extract_port(text_value)
-                            if port:
-                                block_port(port)
-                            else:
-                                print("[WARNING] No valid port found in alert.")
-            except json.JSONDecodeError:
-                print("[ERROR] Failed to decode JSON message!")
+            for alert in data.get("feed", []):
+                msg_type = alert.get("message_type", "")
+                text_value = alert.get("text_value", "")
 
-# Start listening for alerts
-listen_for_alerts()
+                if "A new listening port" in text_value:
+                    print(text_value)
+                    port = extract_port(text_value)
+                    if port:
+                        block_port(port)
+                    else:
+                        print("[WARNING] No valid port found in alert.")
+
+        return {"status": "success", "message": "ASYNC alert processed"}
+    
+    except json.JSONDecodeError:
+        print("[ERROR] Failed to decode JSON message!")
+        return {"status": "error", "message": "Invalid JSON"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 ```
 The output from this script should show the following output on succesfull port blocking.
 
@@ -156,18 +188,22 @@ Blocking or isolating an IP involves taking measures to prevent a specific IP ad
 **Example Python Script to Block an IP:**
 
 ```python
-import redis
+from fastapi import FastAPI, Request
 import json
 import subprocess
 import os
 import re
 
-# Connect to Redis
-redis_channel = "Security_Async_JSON"  # Replace with your actual Redis channel name
-r = redis.Redis(host='localhost', port=5005, decode_responses=True)
+app = FastAPI()
+
+EXCLUDED_IPS = ["1.1.1.3"]  # List of IPs to exclude from blocking
 
 def block_ip(ip):
     """ Block the given IP using iptables """
+    if ip in EXCLUDED_IPS:
+        print(f"[INFO] Skipping blocking for excluded IP {ip}")
+        return
+    
     print(f"[INFO] Attempting to block IP {ip}...")
 
     # Block the IP using iptables
@@ -188,34 +224,38 @@ def extract_ip(text_value):
     print("[DEBUG] No IP found after 'to' or 'from' in message!")
     return None
 
-def listen_for_alerts():
-    """ Listen to Redis channel for new alerts """
-    pubsub = r.pubsub()
-    pubsub.subscribe(redis_channel)
+@app.post("/")
+async def receive_alerts(request: Request):
+    """ API endpoint to receive alerts and process them """
+    try:
+        data = await request.json()  # Parse the JSON data
 
-    print("[INFO] Listening for MAIAlert messages...")
+        if data.get("message_type") == "ASYNC":
+            print("[INFO] Processing ASYNC message...")
 
-    for message in pubsub.listen():
-        if message["type"] == "message":
-            try:
-                data = json.loads(message["data"])  # Parse JSON data
-                if "feed" in data:
-                    for alert in data["feed"]:
-                        if alert.get("message_type") == "MAIAlert":
-                            text_value = alert.get("text_value", "")
-                            print(f"[DEBUG] Received Alert: {text_value}")
-                            
-                            # Extract IP address from the alert's text_value
-                            ip = extract_ip(text_value)
-                            if ip:
-                                block_ip(ip)
-                            else:
-                                print("[WARNING] No valid IP found in alert.")
-            except json.JSONDecodeError:
-                print("[ERROR] Failed to decode JSON message!")
+            for alert in data.get("feed", []):
+                msg_type = alert.get("message_type", "")
+                text_value = alert.get("text_value", "")
 
-# Start listening for alerts
-listen_for_alerts()
+                if "MAIAlert" in msg_type:
+                    print(f"[DEBUG] Received Alert: {text_value}")
+                    
+                    # Extract IP address from the alert's text_value
+                    ip = extract_ip(text_value)
+                    if ip:
+                        block_ip(ip)
+                    else:
+                        print("[WARNING] No valid IP found in alert.")
+
+        return {"status": "success", "message": "ASYNC alert processed"}
+    
+    except json.JSONDecodeError:
+        print("[ERROR] Failed to decode JSON message!")
+        return {"status": "error", "message": "Invalid JSON"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 ```
 
 The output from this script should show the following output on succesfull IP blocking.
@@ -238,80 +278,72 @@ This example is for detecting and terminating any processes or payloads that are
 **Example Python Script to Terminate a malicious Process or Payload:**
 
 ```python
-import redis
+from fastapi import FastAPI, Request
 import json
 import subprocess
 import os
-import re
 
-# Connect to Redis
-redis_channel = "Security_Async_JSON"
-r = redis.Redis(host='localhost', port=5005, decode_responses=True)
+app = FastAPI()
+
+EXCLUDED_PROCESSES = ["sh","bash","python3"]  # Processes to exclude from termination
 
 def terminate_process(process_name):
-    """ Terminate the process by its name """
+    """ Terminate the process by its name unless it's excluded """
+    if process_name in EXCLUDED_PROCESSES:
+        print(f"[INFO] Skipping termination for excluded process: {process_name}")
+        return
     
     print(f"[INFO] Attempting to terminate process: {process_name}...")
-
-    # Find the process ID using the process name
     result = subprocess.run(f"pgrep -f {process_name}", shell=True, capture_output=True, text=True)
     pids = result.stdout.strip().split("\n")
     
-    # Kill all processes found by pgrep
     for pid in pids:
         if pid.isdigit():
             print(f"[INFO] Terminating process {pid} ({process_name})...")
             os.system(f"sudo kill -9 {pid}")
 
 def extract_process_name(text_value):
-    """ Extracts the process name from 'text_value' field """
-    # Extract after the last '|' character
+    """ Extracts the process name from the alert """
     if "|" in text_value:
         process_name = text_value.split("|")[-1]
         print(f"[DEBUG] Extracted process name: {process_name}")
         return process_name
-    else:
-        print("[DEBUG] No '|' found in message!")
-        return text_value  # Return the full string if no '|' is found
+    return text_value  # Return full string if no '|' is found
 
-def is_relevant_alert(text_value):
-    """ Checks if the alert message is relevant for terminating a process """
-    # Only check for alerts that mention "Abnormal process detected"
-    if "Abnormal process detected" in text_value:
-        print(f"[INFO] Processing abnormal process alert: {text_value}")
-        return True
-    return False
+@app.post("/")
+async def receive_alerts(request: Request):
+    """ API endpoint to receive alerts and process them """
+    try:
+        data = await request.json()  
 
-def listen_for_alerts():
-    """ Listen to Redis channel for new alerts """
-    pubsub = r.pubsub()
-    pubsub.subscribe(redis_channel)
+        if data.get("message_type") == "ASYNC":
+            print("[INFO] Processing ASYNC message...")
 
-    print("[INFO] Listening for MAIAlert messages...")
+            for alert in data.get("feed", []):
+                msg_type = alert.get("message_type", "")
+                text_value = alert.get("text_value", "")
 
-    for message in pubsub.listen():
-        if message["type"] == "message":
-            try:
-                data = json.loads(message["data"])  # Parse JSON data
-                if "feed" in data:
-                    for alert in data["feed"]:
-                        if alert.get("message_type") == "MAIAlert":
-                            text_value = alert.get("text_value", "")
-                            print(f"[DEBUG] Received Alert: {text_value}")
-                            
-                            if not is_relevant_alert(text_value):
-                                continue  # Skip this alert if it's not relevant for process termination
-                            
-                            process_name = extract_process_name(text_value)
-                            if process_name:
-                                terminate_process(process_name)
-                            else:
-                                print("[WARNING] No valid process name found in alert.")
-            except json.JSONDecodeError:
-                print("[ERROR] Failed to decode JSON message!")
 
-# Start listening for alerts
-listen_for_alerts()
+                if "Abnormal process detected" in text_value:
+                    print(text_value)
+                    process_name = extract_process_name(text_value)
+
+                    if process_name in EXCLUDED_PROCESSES:
+                        print(f"[INFO] Skipping remediation for excluded process: {process_name}")
+                    elif process_name:
+                        terminate_process(process_name)
+                    else:
+                        print("[WARNING] No valid process name found in alert.")
+
+        return {"status": "success", "message": "ASYNC alert processed"}
+    
+    except json.JSONDecodeError:
+        print("[ERROR] Failed to decode JSON message!")
+        return {"status": "error", "message": "Invalid JSON"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 ```
 The output from this script should show the following output on succesfull malicious process or payload blocking.
 

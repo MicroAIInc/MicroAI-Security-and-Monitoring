@@ -1,5 +1,5 @@
 # Configurations
-The following options allows you to configure your agent according to your needs. Updating this requires the agent to be restarted, and in some cases, retraining.
+The following options allows you to configure your agent according to your needs. Updating this requires the agent to be restarted, and in some cases, retraining. **NOTE: provide details on where to find the config file for different OS**
 
 ## Table of Contents
 

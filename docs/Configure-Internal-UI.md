@@ -1,7 +1,7 @@
 # Launching the internal UI for monitoring sensors
 
 The MicroAI Network Monitor Login Interface provides access to the platform, allowing users to monitor and manage network activities effectively. By default, the local UI is accessible from:
-
+**NOTE: This will only display if console is launched!**
 http://\<device IP>:8989/login
 
 ![Login Page](../docs/images/UI-Login.png)
