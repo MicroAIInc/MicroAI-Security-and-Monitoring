@@ -192,7 +192,7 @@ If all checks pass, the agent is successfully installed and operational!
 
 To customize your agent settings, refer to the [Configurations Guide](docs/Configurations.md).
 
-See [configure url and port monitoring](Configure-Internal-UI.md) page to get a walkthrough on how to use the local UI and monitor these options. **Requires Local UI to be running**
+See [configure url and port monitoring](docs/Configure-Internal-UI.md) page to get a walkthrough on how to use the local UI and monitor these options. **Requires Local UI to be running**
 
 Review our [extend agents capabilities](docs/Extend-Agent-Capabilities.md) page to apply custom remediation options and take custom actions on the agents alerts and notifications. 
 
