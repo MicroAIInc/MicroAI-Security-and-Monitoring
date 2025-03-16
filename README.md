@@ -36,7 +36,7 @@ Determine your Operating system and architecture [here](./docs/Detect-OS-Arch.md
 
 ### Step 1: Activate your License
 
-Activate your license and retrieve your license key on [MicroAI Launchpad](https://launchpad.micro.ai/activate/securitytrial). See [activation walkthrough](./docs/Registration-Instructions.md) for a guided steps.
+Activate your license and retrieve your license key on <a href="https://launchpad.micro.ai/activate/securitytrial" target="_blank">MicroAI Launchpad</a>. See [activation walkthrough](./docs/Registration-Instructions.md) for a guided steps.
 
 ### Step 2: Download the Package
 

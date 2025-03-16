@@ -5,7 +5,7 @@ Follow these steps to register and retrieve your license key for activation.
 ---
 
 ## **Step 1: Access the Registration Page**
-Visit the registration page at **[MicroAI Launchpad](https://launchpad.micro.ai/activate/securitytrial)** and enter the following details:
+Visit the registration page at <a href="https://launchpad.micro.ai/activate/securitytrial" target="_blank">MicroAI Launchpad</a> and enter the following details:
 - **First Name**
 - **Last Name**
 - **Company Name**
