@@ -7,9 +7,9 @@ Welcome to the **official download page** for our software. Below, you'll find d
 ## 🐧 Linux Downloads
 | Version | Architecture | Tar File |
 |------|-------------|---------|
-| 2.2.17 | **AMD64**   | [Download](https://maicdn-staging.micro.ai/security/linux/MicroAI-Security-stg-linux-amd64-2.2.17-rc1.tar.gz) |
-| 2.2.17 | **ARM**     | [Download](https://maicdn-staging.micro.ai/security/linux/MicroAI-Security-stg-linux-arm-2.2.17-rc1.tar.gz) |
-| 2.2.17 | **ARM64**   | [Download](https://maicdn-staging.micro.ai/security/linux/MicroAI-Security-stg-linux-arm64-2.2.17-rc1.tar.gz) |
+| 2.2.17 | **AMD64**   | [Download](https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-amd64-2.2.17-rc1.tar.gz) |
+| 2.2.17 | **ARM**     | [Download](https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm-2.2.17-rc1.tar.gz) |
+| 2.2.17 | **ARM64**   | [Download](https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm64-2.2.17-rc1.tar.gz) |
 
 > **Note:** To use the Docker image:
 #### Key Considerations
@@ -21,19 +21,19 @@ Welcome to the **official download page** for our software. Below, you'll find d
 #### For x86_64 (AMD64) Systems
 
 ```bash
-docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/micro_ai_security:linux-amd64-<latest-version>-rc1
+docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-amd64-<latest-version>-rc1
 ```
 
 #### For ARM (32-bit) Systems
 
 ```bash
-docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/micro_ai_security:linux-arm-<latest-version>-rc1
+docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-arm-<latest-version>-rc1
 ```
 
 #### For ARM64 (AArch64) Systems
 
 ```bash
-docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/micro_ai_security:linux-arm64-<latest-version>-rc1
+docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-arm64-<latest-version>-rc1
 ```
 
 ---
@@ -41,7 +41,7 @@ docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host
 ## 🖥️ Windows Download
 | Version | Architecture | Tar File |
 |------|-------------|---------|
-| 2.2.17 | **AMD64**   | [Download](https://maicdn-staging.micro.ai/security/windows/MicroAI-Security-stg-windows-amd64-2.2.17-rc1.exe) |
+| 2.2.17 | **AMD64**   | [Download](https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-2.2.17-rc1.exe) |
 
 ---
 
@@ -56,7 +56,7 @@ Copy the following section for your operating system and architecture and update
 #### **Linux (AMD64)**
 
 ```bash
-wget https://maicdn-staging.micro.ai/security/linux/MicroAI-Security-stg-linux-amd64-<latest-version>-rc1.tar.gz
+wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-amd64-<latest-version>-rc1.tar.gz
 tar -xzf MicroAI-Security-linux-amd64-<latest-version>-rc1.tar.gz
 cd MicroAI-Security-linux-amd64-<latest-version>/bin
 chmod +x main
@@ -66,7 +66,7 @@ sudo ./main -MAI_API_KEY=<license-key>
 #### **Linux (ARM)**
 
 ```bash
-wget https://maicdn-staging.micro.ai/security/linux/MicroAI-Security-linux-arm-<latest-version>.tar.gz
+wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm-<latest-version>-rc1.tar.gz
 tar -xzf MicroAI-Security-linux-arm-<latest-version>-rc1.tar.gz
 cd MicroAI-Security-linux-arm-<latest-version>/bin
 chmod +x main
@@ -76,7 +76,7 @@ sudo ./main -MAI_API_KEY=<license-key>
 #### **Linux (ARM64)**
 
 ```bash
-wget https://maicdn-staging.micro.ai/security/linux/MicroAI-Security-linux-arm64-<latest-version>.tar.gz
+wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm64-<latest-version>-rc1.tar.gz
 tar -xzf MicroAI-Security-linux-arm64-<latest-version>-rc1.tar.gz
 cd MicroAI-Security-linux-arm64-<latest-version>/bin
 chmod +x main

@@ -36,7 +36,7 @@ Determine your Operating system and architecture [here](./docs/Detect-OS-Arch.md
 
 ### Step 1: Activate your License
 
-Activate your license and retrieve your license key on [MicroAI Launchpad](https://staging-launchpad.micro.ai/activate/securitytrial). See [activation walkthrough](./docs/Registration-Instructions.md) for a guided steps.
+Activate your license and retrieve your license key on [MicroAI Launchpad](https://launchpad.micro.ai/activate/securitytrial). See [activation walkthrough](./docs/Registration-Instructions.md) for a guided steps.
 
 ### Step 2: Download the Package
 
@@ -52,9 +52,9 @@ Copy the following section for your operating system and architecture and update
 #### **Linux (AMD64)**
 
 ```bash
-wget https://maicdn-staging.micro.ai/security/linux/MicroAI-Security-stg-linux-amd64-<latest-version>-rc1.tar.gz
-tar -xzf MicroAI-Security-stg-linux-amd64-<latest-version>-rc1.tar.gz
-cd MicroAI-Security-stg-linux-amd64-<latest-version>/bin
+wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-amd64-<latest-version>-rc1.tar.gz
+tar -xzf MicroAI-Security-linux-amd64-<latest-version>-rc1.tar.gz
+cd MicroAI-Security-linux-amd64-<latest-version>/bin
 chmod +x main
 sudo ./main -MAI_API_KEY=<license-key>
 ```
@@ -62,9 +62,9 @@ sudo ./main -MAI_API_KEY=<license-key>
 #### **Linux (ARM)**
 
 ```bash
-wget https://maicdn-staging.micro.ai/security/linux/MicroAI-Security-stg-linux-arm-<latest-version>.tar.gz
-tar -xzf MicroAI-Security-stg-linux-arm-<latest-version>-rc1.tar.gz
-cd MicroAI-Security-stg-linux-arm-<latest-version>/bin
+wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm-<latest-version>.tar.gz
+tar -xzf MicroAI-Security-linux-arm-<latest-version>-rc1.tar.gz
+cd MicroAI-Security-linux-arm-<latest-version>/bin
 chmod +x main
 sudo ./main -MAI_API_KEY=<license-key>
 ```
@@ -72,9 +72,9 @@ sudo ./main -MAI_API_KEY=<license-key>
 #### **Linux (ARM64)**
 
 ```bash
-wget https://maicdn-staging.micro.ai/security/linux/MicroAI-Security-stg-linux-arm64-<latest-version>.tar.gz
-tar -xzf MicroAI-Security-stg-linux-arm64-<latest-version>-rc1.tar.gz
-cd MicroAI-Security-stg-linux-arm64-<latest-version>/bin
+wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm64-<latest-version>.tar.gz
+tar -xzf MicroAI-Security-linux-arm64-<latest-version>-rc1.tar.gz
+cd MicroAI-Security-linux-arm64-<latest-version>/bin
 chmod +x main
 sudo ./main -MAI_API_KEY=<license-key>
 ```
@@ -106,7 +106,7 @@ sudo ./main -MAI_API_KEY=<license-key> -console -javapath=/usr/lib/jdk/jdk-17.0.
 #### **Windows (AMD64)**
 
 ```powershell
-Invoke-WebRequest https://maicdn-staging.micro.ai/security/windows/MicroAI-Security-stg-windows-amd64-<latest-version>-rc1.exe -OutFile MicroAI-Security-windows-amd64-<latest-version>.exe
+Invoke-WebRequest https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-<latest-version>-rc1.exe -OutFile MicroAI-Security-windows-amd64-<latest-version>.exe
 ```
 
 #### **Docker**
@@ -122,19 +122,19 @@ Docker provides an efficient way to run MicroAI in a containerized environment. 
 #### For x86_64 (AMD64) Systems
 
 ```bash
-docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/micro_ai_security:linux-amd64-<latest-version>-rc1
+docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-amd64-<latest-version>-rc1
 ```
 
 #### For ARM (32-bit) Systems
 
 ```bash
-docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/micro_ai_security:linux-arm-<latest-version>-rc1
+docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-arm-<latest-version>-rc1
 ```
 
 #### For ARM64 (AArch64) Systems
 
 ```bash
-docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/micro_ai_security:linux-arm64-<latest-version>-rc1
+docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-arm64-<latest-version>-rc1
 ```
 
 
