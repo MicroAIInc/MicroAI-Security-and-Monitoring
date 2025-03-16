@@ -40,7 +40,7 @@ Activate your license and retrieve your license key on [MicroAI Launchpad](https
 
 ### Step 2: Download the Package
 
-Download the latest supported releases from the [packages](./docs/Packages.md) page and transfer it onto the system intended for installation. alternatively, use the commands directly from [step 3](#step-3-extract-and-set-up-the-agent).
+Download the latest supported releases from the [packages](./docs/Packages.md) page and transfer it onto the system intended for installation. Alternatively, use the commands directly from [step 3](#step-3-extract-and-set-up-the-agent).
 
 ### Step 3: Extract and Set Up the Agent
 
@@ -62,7 +62,7 @@ sudo ./main -MAI_API_KEY=<license-key>
 #### **Linux (ARM)**
 
 ```bash
-wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm-<latest-version>.tar.gz
+wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm-<latest-version>-rc1.tar.gz
 tar -xzf MicroAI-Security-linux-arm-<latest-version>-rc1.tar.gz
 cd MicroAI-Security-linux-arm-<latest-version>/bin
 chmod +x main
@@ -72,7 +72,7 @@ sudo ./main -MAI_API_KEY=<license-key>
 #### **Linux (ARM64)**
 
 ```bash
-wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm64-<latest-version>.tar.gz
+wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm64-<latest-version>-rc1.tar.gz
 tar -xzf MicroAI-Security-linux-arm64-<latest-version>-rc1.tar.gz
 cd MicroAI-Security-linux-arm64-<latest-version>/bin
 chmod +x main
@@ -236,7 +236,7 @@ For further assistance, contact [**support@micro.ai**](mailto\:support@micro.ai)
 
 ## License
 
-See [Software Evaluation Licensing Agreement](https://github.com/MicroAIInc/MicroAI-Atom-Libraries/blob/master/MicroAI%20Atom%20Evaluation%20License%20Agreement.pdf) for more details.
+See [Software Licensing Agreement](License.txt) for more details.
 
 ---
 
