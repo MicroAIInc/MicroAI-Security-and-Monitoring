@@ -113,4 +113,4 @@ sudo ./main -MAI_API_KEY=<license-key> -console -javapath=/usr/lib/jdk/jdk-17.0.
 3. Run the software from the Start Menu or Command Prompt.
 
 
-See [Launching MicroAI Security and Monitoring](./Launch-Instructions.md) for a detailed walkthrough.
+See [Launching MicroAI Security & Monitoring](./Launch-Instructions.md) for a detailed walkthrough.

@@ -39,7 +39,7 @@ Three prerequisites are listed, each marked with a checked checkbox, indicating 
 <img src="../docs/images/Windows-Launch-Prerequsite.png" alt="Windows Prerequisites" width="600">
 
 ### End-User License Agreement
-This image presents the **"End-User License Agreement"** screen of the MicroAI Security and Monitoring Setup Wizard.  
+This image presents the **"End-User License Agreement"** screen of the MicroAI Security & Monitoring Setup Wizard.  
 
 <img src="../docs/images/Windows-Launch-EULA.png" alt="EULA Screen" width="600">
 
@@ -54,7 +54,7 @@ Users can either:
 <img src="../docs/images/Windows-Launch-Installation.png" alt="Installation Path Selection" width="600">
 
 ### Device Authentication
-The user is required to enter their **License Key** to authenticate and connect the installation to the MicroAI Security and Monitoring platform.
+The user is required to enter their **License Key** to authenticate and connect the installation to the MicroAI Security & Monitoring platform.
 
 A reference image below the input field provides guidance on locating the License key within the **MicroAI Launchpad** interface or retrieve the license key from your email if using quick registration.  
 Additionally, the screen includes an option to **"Launch local UI,"** which is checked by default, with port **8989** specified for local access.  
@@ -67,7 +67,7 @@ The installation has now advanced to the **"Installing"** phase, which is highli
 <img src="../docs/images/Windows-Launch-Complete.png" alt="Installation in Progress" width="600">
 
 ### Windows Services Management
-This image shows the **Windows Services** management console, where users can control and manage the **MicroAI Security and Monitoring service.** The service is currently **"Running"** with an **Automatic startup type,** ensuring it launches automatically with the system.  
+This image shows the **Windows Services** management console, where users can control and manage the **MicroAI Security & Monitoring service.** The service is currently **"Running"** with an **Automatic startup type,** ensuring it launches automatically with the system.  
 
 <img src="../docs/images/Windows-Launch-Service.png" alt="Windows Services Management" width="600">
 

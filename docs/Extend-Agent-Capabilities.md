@@ -1,6 +1,6 @@
 # Extending Agent Capabilities (Remediation & Customization)
 
-MicroAI allows users to extend its security and monitoring capabilities by processing JSON output and implementing custom remediation actions. Users can utilize any programming language to parse data and take appropriate actions based on security alerts. Additionally, MicroAI provides built-in exporters to forward data to preferred remote locations such as HTTP, MQTT, or Redis.
+MicroAI allows users to extend its security & monitoring capabilities by processing JSON output and implementing custom remediation actions. Users can utilize any programming language to parse data and take appropriate actions based on security alerts. Additionally, MicroAI provides built-in exporters to forward data to preferred remote locations such as HTTP, MQTT, or Redis.
 
 ## Custom Remediation Examples
 

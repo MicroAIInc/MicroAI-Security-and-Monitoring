@@ -128,7 +128,7 @@ sudo ./main -MAI_API_KEY=<license-key> -console -javapath=/usr/lib/jdk/jdk-17.0.
 ---
 #### **Windows (AMD64)**
 
-Double-click the `.exe` file and follow the installation steps. See [Launching MicroAI Security and Monitoring](docs/Launch-Instructions.md) for a detailed walkthrough.
+Double-click the `.exe` file and follow the installation steps. See [Launching MicroAI Security & Monitoring](docs/Launch-Instructions.md) for a detailed walkthrough.
 
 #### **Docker**
 ---
@@ -157,7 +157,7 @@ docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host
 ```bash
 docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-arm64-<latest-version>-rc1
 ```
-See [Launching MicroAI Security and Monitoring](docs/Launch-Instructions.md) for a detailed walkthrough.
+See [Launching MicroAI Security & Monitoring](docs/Launch-Instructions.md) for a detailed walkthrough.
 
 ## Validation
 

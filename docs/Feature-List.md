@@ -1,5 +1,7 @@
 ## Features
 
+Please review our [plans](https://security.micro.ai/plans/) page to view different plan options.
+
 ### Deployment and Configurable Features
 
 - **Self-registration:** The agent automatically registers itself on the Launchpad for seamless data tracking and centralized management.
