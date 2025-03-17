@@ -13,14 +13,13 @@
 </p>
 
 <p align="center">
-  This guide will help you <strong>install</strong>, <strong>configure</strong>, and <strong>validate</strong> the MicroAI Security agent, ensuring it operates correctly and securely. No technical expertise is required—just follow the steps carefully, and you'll have the agent up and running in no time!
+  This guide will help you <strong>install</strong>, <strong>configure</strong>, and <strong>validate</strong> the MicroAI Security and Monitoring agent, ensuring it operates correctly and securely. No technical expertise is required—just follow the steps carefully, and you'll have the agent up and running in no time!
 </p>
 
 
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
 - [Validation](#validation)
 - [Configurations](#configurations)
 - [Features](#features)
@@ -34,20 +33,17 @@ Follow the steps below to install MicroAI Security on your system. The installat
 
 Determine your Operating system and architecture [here](./docs/Detect-OS-Arch.md).
 
-### Step 1: Activate your License
+### Step 1: Download the Package
 
-Activate your license and retrieve your license key on <a href="https://launchpad.micro.ai/activate/securitytrial" target="_blank">MicroAI Launchpad</a>. See [activation walkthrough](./docs/Registration-Instructions.md) for a guided steps.
+Download the latest supported release from the [packages](./docs/Packages.md) page and transfer it onto the system intended for installation. Alternatively, use the commands directly from [step 2](#step-2-extract-and-set-up-the-agent).
 
-### Step 2: Download the Package
-
-Download the latest supported releases from the [packages](./docs/Packages.md) page and transfer it onto the system intended for installation. Alternatively, use the commands directly from [step 3](#step-3-extract-and-set-up-the-agent).
-
-### Step 3: Extract and Set Up the Agent
+---
+### Step 2: Extract and Set Up the Agent
 
 Copy the following section for your operating system and architecture and update the command to match it with your details.
 
 - Replace `<latest-version>` with the latest release version.
-- Replace `<license-key>` with a valid license key retrieved from [step 1](#step-1-activate-your-license)
+- Replace `<license-key>` with a valid license key retrieved from [step 3](#step-3-activate-your-license).
 
 #### **Linux (AMD64)**
 
@@ -56,7 +52,6 @@ wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-amd64-<latest
 tar -xzf MicroAI-Security-linux-amd64-<latest-version>-rc1.tar.gz
 cd MicroAI-Security-linux-amd64-<latest-version>/bin
 chmod +x main
-sudo ./main -MAI_API_KEY=<license-key>
 ```
 
 #### **Linux (ARM)**
@@ -66,7 +61,6 @@ wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm-<latest-v
 tar -xzf MicroAI-Security-linux-arm-<latest-version>-rc1.tar.gz
 cd MicroAI-Security-linux-arm-<latest-version>/bin
 chmod +x main
-sudo ./main -MAI_API_KEY=<license-key>
 ```
 
 #### **Linux (ARM64)**
@@ -76,9 +70,39 @@ wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm64-<latest
 tar -xzf MicroAI-Security-linux-arm64-<latest-version>-rc1.tar.gz
 cd MicroAI-Security-linux-arm64-<latest-version>/bin
 chmod +x main
-sudo ./main -MAI_API_KEY=<license-key>
+```
+
+#### **Windows (AMD64)**
+
+```powershell
+Invoke-WebRequest https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-<latest-version>-rc1.exe -OutFile MicroAI-Security-windows-amd64-<latest-version>.exe
 ```
 ---
+### Step 3: Activate your License
+
+Activate your license and retrieve your license key on <a href="https://launchpad.micro.ai/activate/securitytrial" target="_blank">MicroAI Launchpad</a>. See [activation walkthrough](./docs/Registration-Instructions.md) for guided steps.
+
+---
+
+### Step 4: Install Java 17 (If UI Console is Needed)
+
+If you're enabling the Local UI Console, install Java 17 for your linux environments:
+
+- [Java 17 for Linux x64](https://download.oracle.com/java/17/archive/jdk-17.0.9_linux-x64_bin.tar.gz)
+- [Java 17 for Linux Arm x64](https://download.oracle.com/java/17/archive/jdk-17.0.8_linux-aarch64_bin.tar.gz)
+
+```bash
+wget https://download.oracle.com/java/17/archive/jdk-17.0.9_linux-x64_bin.tar.gz
+mkdir -p /usr/lib/jdk
+tar xvzf jdk-17.0.9_linux-x64_bin.tar.gz -C /usr/lib/jdk
+```
+Windows installer includes this step in the instllation process.
+
+---
+### Step 5: Run the Agent
+
+Replace `<license-key>` with the retrieved license key. See [configurations](./docs/Configurations.md#default-configurations) to find the default configurations the agent is set up with.
+
 #### **Run Without Console**
 
 ```bash
@@ -105,9 +129,7 @@ sudo ./main -MAI_API_KEY=<license-key> -console -javapath=/usr/lib/jdk/jdk-17.0.
 ---
 #### **Windows (AMD64)**
 
-```powershell
-Invoke-WebRequest https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-<latest-version>-rc1.exe -OutFile MicroAI-Security-windows-amd64-<latest-version>.exe
-```
+Double-click the `.exe` file and follow the installation steps. See [Launching MicroAI Security and Monitoring](docs/Launch-Instructions.md) for a detailed walkthrough.
 
 #### **Docker**
 ---
@@ -136,22 +158,6 @@ docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host
 ```bash
 docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-arm64-<latest-version>-rc1
 ```
-
-
-### Step 4: Install Java 17 (If UI Console is Needed)
-
-If you're enabling the Local UI Console, install Java 17 for your linux environments:
-
-- [Java 17 for Linux x64](https://download.oracle.com/java/17/archive/jdk-17.0.9_linux-x64_bin.tar.gz)
-- [Java 17 for Linux Arm x64](https://download.oracle.com/java/17/archive/jdk-17.0.8_linux-aarch64_bin.tar.gz)
-
-```bash
-wget https://download.oracle.com/java/17/archive/jdk-17.0.9_linux-x64_bin.tar.gz
-mkdir -p /usr/lib/jdk
-tar xvzf jdk-17.0.9_linux-x64_bin.tar.gz -C /usr/lib/jdk
-```
-Windows installer includes this step in the instllation process.
-
 See [Launching MicroAI Security and Monitoring](docs/Launch-Instructions.md) for a detailed walkthrough.
 
 ## Validation

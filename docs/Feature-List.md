@@ -1,6 +1,6 @@
 ## Features
 
-### Deployment, Registration, and Monitoring Features
+### Deployment and Configurable Features
 
 - **Self-registration:** The agent automatically registers itself on the Launchpad for seamless data tracking and centralized management.
 - **System Metadata Retrieval:** Captures system metadata like hostname, OS version, and other details for an overview of the system’s environment.
@@ -9,12 +9,16 @@
 - **Cross-Platform Installers:** Windows/Linux installers with all dependencies for quick deployment.
 - **Containerized Deployment:** Supports automatic deployment via Kubernetes and ECS for scalability.
 - **Geolocation Support:** Retrieves latitude and longitude from the agent’s configuration for localization.
-- **Health Score Tuning:** Customizable health score matrix for performance tracking.
-- **Remote Monitoring:** Enables monitoring of device URLs and ports remotely.
-- **Threshold-Based Alerts:** Configurable alerts based on user-defined thresholds.
 - **Email Notifications:** Sends email notifications based on event severity.
 - **External Data Exporter:** Exports collected data to third-party visualization tools.
 - **User-Friendly UI:** Web-based interface for configuration and monitoring.
+
+## Monitoring Features
+
+- **Health Score Tuning:** Customizable health score matrix for performance tracking.
+- **Remote Monitoring:** Enables monitoring of device URLs and ports remotely.
+- **Threshold-Based Alerts:** Configurable alerts based on user-defined thresholds.
+- **System Resource Monitoring:** Monitors essential system resources for any abnormality and provides insights and alerts.
 
 ## Security Features
 
