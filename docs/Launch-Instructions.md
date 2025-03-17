@@ -33,7 +33,7 @@ The wizard is currently in the **"Collecting Information"** phase, highlighted i
 ### Prerequisites
 Three prerequisites are listed, each marked with a checked checkbox, indicating they are selected for installation:
 - **Npcap** (Version 1.0 or higher required)
-- **Microsoft Windows Desktop Runtime - 7.0.0 (x86)**
+- **Microsoft Windows Desktop Runtime - 8.0.0 (x86)**
 - **Oracle Java SE Development Kit 17.0.1 x64** (Version 17.0.1 or higher required)
 
 <img src="../docs/images/Windows-Launch-Prerequsite.png" alt="Windows Prerequisites" width="600">

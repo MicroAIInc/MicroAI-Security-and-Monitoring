@@ -1,7 +1,7 @@
 # Configurations
 The following options allows you to configure your agent according to your needs. Updating this requires the agent to be restarted, and in some cases, retraining.
 
-The configuration file can be located under config/config.json. Determine where the package was installed during the [installation step](../README.md#step-3-extract-and-set-up-the-agent).
+The configuration file can be located under config/config.json. Determine where the package was installed during the [installation step](../README.md#step-2-extract-and-set-up-the-agent).
 
 ```sh
 MicroAI Secucrity and Monitoring
@@ -123,11 +123,11 @@ The following screenshot displays a **High Severity Security Alert** email from 
 
 #### Critical Monitoring Alert
 
-The following screenshot indicates a **Critical Monitoring Alert** triggered by a Bad Gateway (HTTP 502) error on `nasstaging2-ice.c2m.net_URL`.
+The following screenshot indicates a **Critical Monitoring Alert** triggered by a Bad Gateway (HTTP 502) error on `********.net_URL`.
 
 **Key Details:**
-- **Device:** ATT-STG-111
-- **IP:** 10.0.2.111
+- **Device:** ***-STG-111
+- **IP:** \*.\*.\*.111
 - **Last Downtime:** 59h 34m 28s
 - **Uptime:** 99.87%
 - **Last Up:** 5m 0s ago
@@ -136,11 +136,11 @@ The following screenshot indicates a **Critical Monitoring Alert** triggered by 
 
 #### Informational Monitoring Alert
 
-The following screenshot displays an **Informational Monitoring Alert** from MicroAI, indicating a temporary downtime on the `nasstaging2` service at `nasstaging2-ice.c2m.net`.
+The following screenshot displays an **Informational Monitoring Alert** from MicroAI, indicating a temporary downtime on the `****` service at `******.net`.
 
 **Key Details:**
-- **Device:** ATT-STG-111
-- **IP:** 10.0.2.111
+- **Device:** ***-STG-111
+- **IP:** \*.\*.\*.111
 - **Last Downtime:** 4m 58s
 - **Uptime:** 99.85%
 - **Last Up:** 10m 0s ago

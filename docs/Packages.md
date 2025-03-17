@@ -41,7 +41,7 @@ docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host
 ## 🖥️ Windows Download
 | Version | Architecture | Tar File |
 |------|-------------|---------|
-| 2.2.17 | **AMD64**   | [Download](https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-2.2.17-rc1.exe) |
+| 2.2.17 | **x64**   | [Download](https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-2.2.17-rc1.exe) |
 
 ---
 
@@ -51,7 +51,7 @@ docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host
 Copy the following section for your operating system and architecture and update the command to match it with your details.
 
 - Replace `<latest-version>` with the latest release version.
-- Replace `<license-key>` with a valid license key retrieved from [step 1](../README.md#step-1-activate-your-license)
+- Replace `<license-key>` with a valid license key retrieved from [step 3](../README.md#step-3-activate-your-license)
 
 #### **Linux (AMD64)**
 

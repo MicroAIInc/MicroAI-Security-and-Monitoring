@@ -6,14 +6,14 @@
   <img src="./docs/images/microai-logo.png" alt="MicroAI Logo" width="250">
 </p>
 
-<h3 align="center">MicroAI Security and Monitoring</h3>
+<h3 align="center">MicroAI Security & Monitoring</h3>
 
 <p align="center">
-  MicroAI Security is an Edge-native AI platform that embeds and trains advanced security algorithms directly on a device, machine, or process.
+  MicroAI Security & Monitoring is an Edge-native AI platform that embeds and trains advanced security algorithms directly on a device, machine, or process.
 </p>
 
 <p align="center">
-  This guide will help you <strong>install</strong>, <strong>configure</strong>, and <strong>validate</strong> the MicroAI Security and Monitoring agent, ensuring it operates correctly and securely. No technical expertise is required—just follow the steps carefully, and you'll have the agent up and running in no time!
+  This guide will help you <strong>install</strong>, <strong>configure</strong>, and <strong>validate</strong> the MicroAI Security & Monitoring agent, ensuring it operates correctly and securely. No technical expertise is required—just follow the steps carefully, and you'll have the agent up and running in no time!
 </p>
 
 
@@ -43,7 +43,6 @@ Download the latest supported release from the [packages](./docs/Packages.md) pa
 Copy the following section for your operating system and architecture and update the command to match it with your details.
 
 - Replace `<latest-version>` with the latest release version.
-- Replace `<license-key>` with a valid license key retrieved from [step 3](#step-3-activate-your-license).
 
 #### **Linux (AMD64)**
 
@@ -101,7 +100,7 @@ Windows installer includes this step in the instllation process.
 ---
 ### Step 5: Run the Agent
 
-Replace `<license-key>` with the retrieved license key. See [configurations](./docs/Configurations.md#default-configurations) to find the default configurations the agent is set up with.
+Replace `<license-key>` with a valid license key retrieved from [step 3](#step-3-activate-your-license). See [configurations](./docs/Configurations.md#default-configurations) to find the default configurations the agent is set up with.
 
 #### **Run Without Console**
 
@@ -201,6 +200,8 @@ To customize your agent settings, refer to the [Configurations Guide](docs/Confi
 See [configure url and port monitoring](docs/Configure-Internal-UI.md) page to get a walkthrough on how to use the local UI and monitor these options. **Requires Local UI to be running**
 
 Review our [extend agents capabilities](docs/Extend-Agent-Capabilities.md) page to apply custom remediation options and take custom actions on the agents alerts and notifications. 
+
+If you wish to view your profile, pland or update your plan, follow this [guide](./docs/Update-Profile.md).
 
 ## Features
 

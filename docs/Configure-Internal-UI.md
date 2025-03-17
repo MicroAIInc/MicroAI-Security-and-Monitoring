@@ -5,7 +5,7 @@ The MicroAI Network Monitor Login Interface provides access to the platform, all
 
 **NOTE: This will only display if console is launched!**
 
-![Login Page](../docs/images/UI-Login.png)
+<img src="../docs/images/UI-Login.png" alt="Login Page" width="600">
 
 The Local UI Console provides a graphical interface for managing and monitoring remote sensors, including:
 
@@ -13,6 +13,10 @@ The Local UI Console provides a graphical interface for managing and monitoring 
 - **Service or Port Monitoring:** Monitors the status of network services by checking specific ports and IP addresses to ensure connectivity and availability.
 
 To log in, users must enter their credentials and click the Login button. If authentication is successful, they will be redirected to the dashboard for network monitoring.
+
+To change the default password, click on the user avatar(1), followed by settings. Add your desired password and click on update.
+
+<img src="../docs/images/UI-Change-Password.png" alt="Change UI password" width="600">
 
 ## Step 1: Adding Groups
 
@@ -22,7 +26,7 @@ To create a new group, navigate to the **GROUP** tab in the main navigation and 
 
 Once you've configured your group settings, click the **SAVE** button to create the group or **CANCEL** to discard your changes. Created groups will appear in the group management screen where they can be edited or deleted as needed.
 
-![Group Management](../docs/images/UI-Add-Group.png)
+<img src="../docs/images/UI-Add-Group.png" alt="Group Management" width="600">
 
 ## Step 2: Adding Devices
 
@@ -32,11 +36,11 @@ Select the device group from the dropdown (e.g., "Vm Group1"). Enter a descripti
 
 Click **SAVE** to add the device to your inventory or **CANCEL** to discard changes. The added device will appear in the device management screen for monitoring and configuration.
 
-![Device Management](../docs/images/UI-Add-Device.png)
+<img src="../docs/images/UI-Add-Device.png" alt="Device Management" width="600">
 
 ## Step 3: Adding Sensors
 
-![Sensor Configuration](../docs/images/UI-Add-Sensor.png)
+<img src="../docs/images/UI-Add-Sensor.png" alt="Sensor Configuration" width="600">
 
 The **Add Sensor** feature allows you to configure monitoring parameters for specific devices. To add a sensor, navigate to the **SENSOR** tab and click the **+** button to open the dialog.
 
@@ -44,7 +48,7 @@ Select the device you wish to monitor from the **Device** dropdown (e.g., "Devic
 
 Click **NEXT** to proceed with additional sensor configuration options or **CANCEL** to discard changes. The configured sensor will monitor the selected device according to the parameters you've specified.
 
-![Select Sensor Type](../docs/images/UI-Select-Sensor.png)
+<img src="../docs/images/UI-Select-Sensor.png" alt="Select Sensor Type" width="600">
 
 ### Monitoring Options
 
@@ -55,19 +59,19 @@ Here you have two monitoring options:
 
 For example, we will choose **URL Monitor**.
 
-![URL Monitor Setup](../docs/images/UI-Monitoring-Setup.png)
+<img src="../docs/images/UI-Monitoring-Setup.png" alt="URL Monitor Setup" width="600">
 
 To monitor a URL, enter the desired link in the **URL** field (e.g., https://www.google.com/). Configure the **Request Timeout** in seconds to define how long the system should wait for a response before considering the URL unreachable (e.g., "10 seconds"). Specify the **Success Response Codes** that indicate a successful connection, such as "200" for OK. Choose the **Request Method**, like "GET," to determine how the system will request data from the URL. If authentication is required, provide the **User Name** and **Password** in the **Basic Authentication** section.
 
 Finally, click **FINISH** to save the sensor configuration or **CANCEL** to discard any changes. The configured sensor will then monitor the specified URL based on the parameters you have set.
 
-![Monitoring Status Table](../docs/images/UI-Sensor-Table.png)
+<img src="../docs/images/UI-Sensor-Table.png" alt="Monitoring Status Table" width="600">
 
 The table provides a clear overview of the health and status of all monitored resources. At a glance, you can identify which sensors are functioning normally and which ones are experiencing issues. In this screenshot, "Sensor2" is marked as "DOWN," indicating a potential problem that may require further investigation. By analyzing the table, you can quickly assess the overall system health, detect patterns, and prioritize troubleshooting efforts to maintain optimal performance. Additionally, historical data and trends can help in identifying recurring issues, enabling proactive maintenance and reducing system downtime.
 
 ## Monitoring Alert Thresholds
 
-![Alert Thresholds Configuration](../docs/images/UI-Monitoring-Threshold.png)
+<img src="../docs/images/UI-Monitoring-Threshold.png" alt="Alert Thresholds Configuration" width="600">
 
 The **Monitoring Alert Threshold** feature allows you to configure performance and resource utilization limits that trigger system monitoring alerts. This enables proactive monitoring of critical system parameters.
 
