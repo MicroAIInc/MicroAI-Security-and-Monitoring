@@ -1,6 +1,6 @@
-## Features
+# Features
 
-Please review our [plans](https://security.micro.ai/plans/) page to view different plan options.
+Please review our [plans](./Plans.md) page to view different plan options.
 
 ### Deployment and Configurable Features
 

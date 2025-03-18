@@ -1,4 +1,4 @@
-## Accessing Profile and Plan Details
+# Accessing Profile and Plan Details
 
 Follow these steps to access and manage your profile and plan details on the MicroAI Launchpad.
 
