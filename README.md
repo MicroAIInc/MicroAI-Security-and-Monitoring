@@ -1,5 +1,5 @@
 <p align="right">
-  <img src="https://img.shields.io/badge/MicroAI_Security_and_Monitoring-2.2.17-green" alt="Static Badge">
+  <img src="https://img.shields.io/badge/MicroAI_Security_&_Monitoring-2.2.17-green" alt="Static Badge">
 </p>
 <br />
 <p align="center">
@@ -250,6 +250,6 @@ See [Software Licensing Agreement](License.txt) for more details.
 ## Contact
 
 - **Company:** MicroAI™
-- **Website:** [www.micro.ai](https://www.micro.ai)
+- **Website:** [www.security.micro.ai](https://www.security.micro.ai)
 - **Email:** [support@micro.ai](mailto\:support@micro.ai)
 
