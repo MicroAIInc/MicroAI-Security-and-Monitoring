@@ -1,13 +1,13 @@
 # 📦 Software Downloads
 
-Welcome to the **official download page** for our software. Below, you'll find download links for **Linux (AMD64, ARM, ARM64)** and **Windows (AMD64)**.
+Welcome to the **official download page** for our software. Below, you'll find download links for **Linux (x64, ARM, ARM64)** and **Windows (x64)**.
 
 ---
 
 ## 🐧 Linux Downloads
 | Version | Architecture | Tar File |
 |------|-------------|---------|
-| 2.2.17 | **AMD64**   | [Download](https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-amd64-2.2.17-rc1.tar.gz) |
+| 2.2.17 | **x64**   | [Download](https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-amd64-2.2.17-rc1.tar.gz) |
 | 2.2.17 | **ARM**     | [Download](https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm-2.2.17-rc1.tar.gz) |
 | 2.2.17 | **ARM64**   | [Download](https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm64-2.2.17-rc1.tar.gz) |
 
@@ -18,19 +18,19 @@ Welcome to the **official download page** for our software. Below, you'll find d
 - Using `--privileged` and `--net=host` grants the container full system access, which is required for security monitoring but should be used cautiously.
 - The image tag `<latest-version>` corresponds to the MicroAI agent version; update it as needed for newer versions.
 
-#### For x86_64 (AMD64) Systems
+#### For Linux (x64) Systems
 
 ```bash
 docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-amd64-<latest-version>-rc1
 ```
 
-#### For ARM (32-bit) Systems
+#### For Linux ARM (x86) Systems
 
 ```bash
 docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-arm-<latest-version>-rc1
 ```
 
-#### For ARM64 (AArch64) Systems
+#### For Linux ARM (x64) Systems
 
 ```bash
 docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-arm64-<latest-version>-rc1
@@ -53,7 +53,7 @@ Copy the following section for your operating system and architecture and update
 - Replace `<latest-version>` with the latest release version.
 - Replace `<license-key>` with a valid license key retrieved from [step 3](../README.md#step-3-activate-your-license)
 
-#### **Linux (AMD64)**
+#### **Linux (x64)**
 
 ```bash
 wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-amd64-<latest-version>-rc1.tar.gz
@@ -66,7 +66,7 @@ sudo ./main -MAI_API_KEY=<license-key>
 #### **Linux (ARM)**
 
 ```bash
-wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm-<latest-version>-rc1.tar.gz
+wget https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm-<latest-version>-rc1.tar.gz
 tar -xzf MicroAI-Security-linux-arm-<latest-version>-rc1.tar.gz
 cd MicroAI-Security-linux-arm-<latest-version>/bin
 chmod +x main
@@ -76,7 +76,7 @@ sudo ./main -MAI_API_KEY=<license-key>
 #### **Linux (ARM64)**
 
 ```bash
-wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-arm64-<latest-version>-rc1.tar.gz
+wget https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm64-<latest-version>-rc1.tar.gz
 tar -xzf MicroAI-Security-linux-arm64-<latest-version>-rc1.tar.gz
 cd MicroAI-Security-linux-arm64-<latest-version>/bin
 chmod +x main
@@ -108,7 +108,7 @@ sudo ./main -MAI_API_KEY=<license-key> -console -javapath=/usr/lib/jdk/jdk-17.0.
 ```
 
 ### **Windows (EXE Installer)**
-1. Download the **Windows AMD64 installer**.
+1. Download the **Windows x64 installer**.
 2. Double-click the `.exe` file and follow the installation steps.
 3. Run the software from the Start Menu or Command Prompt.
 
