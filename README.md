@@ -155,7 +155,7 @@ docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host
 #### For Linux ARM (x64) Systems
 
 ```bash
-docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-  64-<latest-version>-rc1
+docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-arm64-<latest-version>-rc1
 ```
 See [Launching MicroAI Security & Monitoring](docs/Launch-Instructions.md) for a detailed walkthrough.
 
