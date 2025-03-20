@@ -201,7 +201,7 @@ See [configure url and port monitoring](docs/Configure-Internal-UI.md) page to g
 
 Review our [extend agents capabilities](docs/Extend-Agent-Capabilities.md) page to apply custom remediation options and take custom actions on the agents alerts and notifications. 
 
-If you wish to view your profile, pland or update your plan, follow this [guide](./docs/Update-Profile.md).
+If you wish to view your profile, devices or update your plan, follow this [guide](./docs/Update-Profile.md).
 
 ## Features
 
