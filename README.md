@@ -139,6 +139,14 @@ Docker provides an efficient way to run MicroAI in a containerized environment. 
 - Replace `<license-key>` with the actual MicroAI License key for authentication.
 - Using `--privileged` and `--net=host` grants the container full system access, which is required for security monitoring but should be used cautiously.
 - The image tag `<latest-version>` corresponds to the MicroAI agent version; update it as needed for newer versions.
+- If you need to update the configuration file, you can mount the config directory using the `-v` option and add this to the commands below:  
+  ```bash
+  -v <absolute_path_to_config_directory_on_host_machine>:/home/security/config
+  ```
+- Similarly, to access logs from the host machine, mount the log directory as follows:  
+  ```bash
+  -v <absolute_path_to_log_directory_on_host_machine>:/home/security/data/logs
+  ```
 
 #### For Linux x64 Systems
 
