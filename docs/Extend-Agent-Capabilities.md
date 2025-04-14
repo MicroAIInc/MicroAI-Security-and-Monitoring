@@ -2,6 +2,12 @@
 
 MicroAI allows users to extend its security & monitoring capabilities by processing JSON output and implementing custom remediation actions. Users can utilize any programming language to parse data and take appropriate actions based on security alerts. Additionally, MicroAI provides built-in exporters to forward data to preferred remote locations such as HTTP, MQTT, or Redis.
 
+# Output Json payload
+
+The agent generates both synchronous and asynchronous payloads, which are essential for monitoring alerts, notifications, and real-time device updates. By subscribing to these payloads, users can implement custom remediation strategies or automated responses.
+
+For a detailed breakdown of both SYNC and ASYNC payload structures, refer to the [payload documentation](./Sync-and-Async-Payloads.md).
+
 ## Custom Remediation Examples
 
 ### Configure External Exporter
