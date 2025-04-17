@@ -1,5 +1,5 @@
 <p align="right">
-  <img src="https://img.shields.io/badge/MicroAI_Security_&_Monitoring-2.2.17-green" alt="Static Badge">
+  <img src="https://img.shields.io/badge/MicroAI_Security_&_Monitoring-2.3.0-green" alt="Static Badge">
 </p>
 <br />
 <p align="center">
@@ -157,7 +157,8 @@ docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host
 #### For Linux ARM (x86) Systems
 
 ```bash
-docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-arm-<latest-version>-rc1
+docker run -v /etc/ssl:/etc/ssl -d --priv
+ileged --net=host --pid=host --ipc=host --name microai_security_<latest-version> -e MAI_API_KEY=<license-key> -ti plasmacomputing/microai_security:linux-arm-<latest-version>-rc1
 ```
 
 #### For Linux ARM (x64) Systems
