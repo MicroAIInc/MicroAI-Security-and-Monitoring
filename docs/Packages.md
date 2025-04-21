@@ -53,6 +53,7 @@ docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host
 | Version | Architecture | Tar File |
 |------|-------------|---------|
 | 2.2.17 | **x64**   | [Download](https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-2.2.17-rc1.exe) |
+| 2.3.0 | **x64**   | [Download](https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-2.3.0.exe) |
 
 ---
 
