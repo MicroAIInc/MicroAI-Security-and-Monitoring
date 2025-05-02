@@ -1,5 +1,5 @@
 <p align="right">
-  <img src="https://img.shields.io/badge/MicroAI_Security_&_Monitoring-2.3.0-green" alt="Static Badge">
+  <img src="https://img.shields.io/badge/MicroAI_Security_&_Monitoring-2.4.0-green" alt="Static Badge">
 </p>
 <br />
 <p align="center">
@@ -47,8 +47,8 @@ Copy the following section for your operating system and architecture and update
 #### **Linux (x64)**
 
 ```bash
-wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-amd64-<latest-version>-rc1.tar.gz
-tar -xzf MicroAI-Security-linux-amd64-<latest-version>-rc1.tar.gz
+wget https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-amd64-<latest-version>.tar.gz
+tar -xzf MicroAI-Security-linux-amd64-<latest-version>.tar.gz
 cd MicroAI-Security-linux-amd64-<latest-version>/bin
 chmod +x main
 ```
@@ -56,8 +56,8 @@ chmod +x main
 #### **Linux (ARM x86)**
 
 ```bash
-wget https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm-<latest-version>-rc1.tar.gz
-tar -xzf MicroAI-Security-linux-arm-<latest-version>-rc1.tar.gz
+wget https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm-<latest-version>.tar.gz
+tar -xzf MicroAI-Security-linux-arm-<latest-version>.tar.gz
 cd MicroAI-Security-linux-arm-<latest-version>/bin
 chmod +x main
 ```
@@ -65,8 +65,8 @@ chmod +x main
 #### **Linux (ARM x64)**
 
 ```bash
-wget https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm64-<latest-version>-rc1.tar.gz
-tar -xzf MicroAI-Security-linux-arm64-<latest-version>-rc1.tar.gz
+wget https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm64-<latest-version>.tar.gz
+tar -xzf MicroAI-Security-linux-arm64-<latest-version>.tar.gz
 cd MicroAI-Security-linux-arm64-<latest-version>/bin
 chmod +x main
 ```
@@ -74,7 +74,7 @@ chmod +x main
 #### **Windows (x64)**
 
 ```powershell
-Invoke-WebRequest https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-<latest-version>-rc1.exe -OutFile MicroAI-Security-windows-amd64-<latest-version>.exe
+Invoke-WebRequest https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-<latest-version>.exe -OutFile MicroAI-Security-windows-amd64-<latest-version>.exe
 ```
 ---
 ### Step 3: Activate your License

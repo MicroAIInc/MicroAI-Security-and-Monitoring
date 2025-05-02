@@ -13,6 +13,9 @@ Welcome to the **official download page** for our software. Below, you'll find d
 | 2.3.0 | **x64**   | [Download](https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-amd64-2.3.0.tar.gz) |
 | 2.3.0 | **ARM**     | [Download](https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm-2.3.0.tar.gz) |
 | 2.3.0 | **ARM64**   | [Download](https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm64-2.3.0.tar.gz) |
+| 2.4.0 | **x64**   | [Download](https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-amd64-2.4.0.tar.gz) |
+| 2.4.0 | **ARM**     | [Download](https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm-2.4.0.tar.gz) |
+| 2.4.0 | **ARM64**   | [Download](https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm64-2.4.0.tar.gz) |
 
 > **Note:** To use the Docker image:
 #### Key Considerations
