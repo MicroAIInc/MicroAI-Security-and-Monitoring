@@ -1,5 +1,5 @@
 <p align="right">
-  <img src="https://img.shields.io/badge/MicroAI_Security_&_Monitoring-2.4.0-green" alt="Static Badge">
+  <img src="https://img.shields.io/badge/MicroAI_Security_&_Monitoring-2.5.1-green" alt="Static Badge">
 </p>
 <br />
 <p align="center">
