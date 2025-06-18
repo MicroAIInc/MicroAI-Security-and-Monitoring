@@ -22,6 +22,9 @@ Welcome to the **official download page** for our software. Below, you'll find d
 | 2.5.1 | **x64**   | [Download](https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-amd64-2.5.1.tar.gz) |
 | 2.5.1 | **ARM**     | [Download](https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm-2.5.1.tar.gz) |
 | 2.5.1 | **ARM64**   | [Download](https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm64-2.5.1.tar.gz) |
+| 2.6.0 | **x64**   | [Download](https://maicdn.micro.ai/security/linux/MicroAI-Security-linux-amd64-2.6.0.tar.gz) |
+| 2.6.0 | **ARM**     | [Download](https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm-2.6.0.tar.gz) |
+| 2.6.0 | **ARM64**   | [Download](https://maicdn.micro.ai/security/linux_arm/MicroAI-Security-linux-arm64-2.6.0.tar.gz) |
 
 > **Note:** To use the Docker image:
 #### Key Considerations
@@ -63,6 +66,7 @@ docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host
 |------|-------------|---------|
 | 2.2.17 | **x64**   | [Download](https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-2.2.17-rc1.exe) |
 | 2.3.0 | **x64**   | [Download](https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-2.3.0.exe) |
+| 2.6.0 | **x64**   | [Download](https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-2.6.0.exe) |
 
 ---
 
