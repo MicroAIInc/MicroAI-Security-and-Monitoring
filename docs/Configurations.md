@@ -19,6 +19,7 @@ MicroAI Secucrity and Monitoring
 - [Default configurations](#default-configurations)
 - [Enabling Email Alerts](#enabling-email-alerts-for-security-events)
 - [Exporter Configurations](#exporter-configurations)
+- [Using Prometheus & Grafana for Visualization](#using-prometheus--grafana-for-visualization)
 - [Configure URL and Port Monitoring](#configure-url-and-port-monitoring)
 - [All Configurations](#all-configuration-options)
 
@@ -178,6 +179,20 @@ MicroAI supports various exporters to forward security events to remote systems.
 - **MQTT Exporter:** For systems utilizing MQTT messaging protocols, this exporter publishes all data, including both synchronous and asynchronous content, to an MQTT broker. This allows for the transmission of comprehensive event data. This method is ideal for lightweight, real-time messaging and is particularly well-suited for IoT-based applications and cloud-native systems that rely on MQTT for communication, enabling efficient data distribution across these environments.
 - **Redis Exporter:** The Redis exporter pushes all data, including both synchronous and asynchronous information, into a Redis queue. Offering the flexibility to send complete event data. This is particularly useful for applications that require fast access to event data or for integrating with other Redis-based systems, like job queues or message brokers, ensuring efficient message handling and storage in high-throughput environments.
 - **Built-in Prometheus metrics endpoint:** MicroAI Security includes a built-in Prometheus metrics endpoint to provide real-time system monitoring and health diagnostics. The endpoint, accessible via http://127.0.0.1:55001/metrics, exposes key system telemetry in a Prometheus-compatible format, allowing integration with monitoring and alerting systems. This is always enabled.
+
+## Using Prometheus & Grafana for Visualization
+
+In addition to MicroAI Launchpad, you can use **Prometheus** and **Grafana** to visually explore your MicroAI Security & Monitoring data. This approach is ideal for users who prefer advanced dashboards, real-time charts, and customizable visualization panels.
+
+The Grafana setup uses MicroAI’s built-in **Prometheus metrics endpoint** (`http://127.0.0.1:55001/metrics`) to collect data. Once Prometheus is configured to scrape this endpoint, Grafana can be connected to visualize the data in a variety of formats.
+
+📄 **See the full setup guide here:** [Prometheus & Grafana Setup for MicroAI Security and Monitoring](Grafana-Extension.md)
+
+**Key benefits of using Grafana with MicroAI:**
+- Customizable dashboards tailored to your environment
+- Real-time charts for CPU, memory, disk, network, and security metrics
+- Easy alert creation directly in Grafana
+- Supports historical data exploration and correlation with other metrics
 
 ## Configure URL and Port Monitoring
 
