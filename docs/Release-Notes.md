@@ -5,6 +5,17 @@ This document highlights recent updates, fixes, and improvements available for L
 
 ## Version Highlights
 
+### **2.7.2 (Linux)**
+**Release Date:** November 2025  
+This release introduces important enhancements to system stability, resource management, and detection accuracy across Linux platforms.
+
+#### Fixes & Improvements
+- **Memory Usage Limitation for Redis Server** Implemented stricter memory limits to prevent Redis from exceeding system resource thresholds, ensuring more predictable performance and improved system stability. 
+- Improved detection logic to reduce false positives and increase reliability of ransomware-related alerts.
+- Continued enhancements to ensure smoother and more consistent operation across x64, ARM, and ARM64 Linux environments.
+
+---
+
 ### **2.7.1 (Linux)**
 **Release Date:** October 2025  
 This release focuses on improving agent stability and reliability across Linux systems.  
