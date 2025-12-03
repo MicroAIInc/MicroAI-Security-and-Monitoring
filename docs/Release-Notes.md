@@ -5,6 +5,22 @@ This document highlights recent updates, fixes, and improvements available for L
 
 ## Version Highlights
 
+### **2.7.3 (Linux)**
+**Release Date:** 03 December 2025  
+This release delivers full proxy support for air-gapped and high-security deployments.
+
+#### Fixes & Improvements
+- All device communication (activation, agent data, MQTT, etc.) is now fully routable through a single Nginx reverse proxy.
+- Only the proxy server requires internet access and is intended for placement in the DMZ.
+- No internal servers or devices need direct internet connectivity.
+- Proxy supports: 
+  - Device activation over HTTPS (configurable port, default 444) 
+  - Plain-TCP MQTT forwarding (configurable port, default 1883)
+- Simple agent-side configuration using HTTPProxy and MQTTProxy parameters.
+- DMZ proxy restricts all traffic to HTTPS only (incoming & outgoing) for maximum security.
+
+---
+
 ### **2.7.2 (Linux)**
 **Release Date:** November 2025  
 This release introduces important enhancements to system stability, resource management, and detection accuracy across Linux platforms.
