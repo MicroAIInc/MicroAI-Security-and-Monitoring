@@ -5,7 +5,7 @@ This document highlights recent updates, fixes, and improvements available for L
 
 ## Version Highlights
 
-### **2.7.3 (Linux)**
+### **2.7.3**
 **Release Date:** 03 December 2025  
 This release delivers full proxy support for air-gapped and high-security deployments.
 

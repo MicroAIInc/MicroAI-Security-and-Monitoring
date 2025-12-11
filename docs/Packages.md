@@ -71,6 +71,7 @@ docker run -v /etc/ssl:/etc/ssl -d --privileged --net=host --pid=host --ipc=host
 | 2.3.0 | **x64**   | [Download](https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-2.3.0.exe) |
 | 2.6.0 | **x64**   | [Download](https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-2.6.0.exe) |
 | 2.7.0 | **x64**   | [Download](https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-2.7.0.exe) |
+| 2.7.3 | **x64**   | [Download](https://maicdn.micro.ai/security/windows/MicroAI-Security-windows-amd64-2.7.3.exe) |
 
 ---
 
